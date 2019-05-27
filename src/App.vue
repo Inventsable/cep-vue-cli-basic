@@ -6,19 +6,46 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     HelloWorld
+  },
+  methods: {
+    dispatchEvent(name, data) {
+      var event = new CSEvent(name, "APPLICATION");
+      event.data = data;
+      this.csInterface.dispatchEvent(event);
+    },
+    loadScript(path) {
+      this.csInterface.evalScript(`$.evalFile('${path}')`);
+    },
+    getCSS(prop) {
+      // Returns current value of CSS variable
+      // prop == typeof String as name of variable, with or without leading dashes:
+      // this.getCSS('color-bg') || this.getCSS('--scrollbar-width')
+      return window
+        .getComputedStyle(document.documentElement)
+        .getPropertyValue(`${/^\-\-/.test(prop) ? prop : "--" + prop}`);
+    },
+    setCSS(prop, data) {
+      // Sets value of CSS variable
+      // prop == typeof String as name of variable, with or without leading dashes:
+      // this.setCSS('color-bg', 'rgba(25,25,25,1)') || this.setCSS('--scrollbar-width', '20px')
+      document.documentElement.style.setProperty(
+        `${/^\-\-/.test(prop) ? prop : "--" + prop}`,
+        data
+      );
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
