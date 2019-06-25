@@ -2,16 +2,25 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <stylizer/>
+    <identity/>
+    <menus/>
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import stylizer from "./components/main/stylizer";
+import identity from "./components/main/identity";
+import menus from "./components/main/menus";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    HelloWorld,
+    stylizer,
+    menus,
+    identity
   },
   data: () => ({
     csInterface: null,
