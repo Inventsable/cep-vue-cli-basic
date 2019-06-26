@@ -98,7 +98,7 @@ export default {
       if (id == "refresh") {
         location.reload();
       } else if (id == "localhost") {
-        console.log(this.localhost);
+        // console.log(this.localhost);
         cep.util.openURLInDefaultBrowser(this.localhost);
       }
     },
