@@ -1,5 +1,11 @@
 # cep-vue-cli-basic
 
+---
+
+## DEPRECATED 07/08/19 -- Generator now uses [basic2x](https://github.com/Inventsable/cep-vue-cli-basic2x)
+
+---
+
 ## Template used in [generator-cep-vue-cli](https://github.com/Inventsable/generator-cep-vue-cli)
 
 > **NOTE:** This repo should not be `git clone`d directly because it has breaking placeholder values and will not run on it's own.
@@ -21,6 +27,7 @@ yo cep-vue-cli
 - [Vue-CLI-3](https://cli.vuejs.org/) as Node.js tooling (webkit)
 - Full typescript support for any app with pravdomil's Adobe types (same as writing .jsx scripts but access to host DOM as autocomplete while typing)
 - Various personal utility components that handle context/flyout menus, launching CEF debug, common errors with Webpack, matching all host app styles and more
+- ✨ [All color themes of any host app automatically handled by starlette library](https://github.com/Inventsable/starlette) ✨
 
 ## [Never used Node, Vue CLI-3 or Webpack?](#Getting-Started)
 
